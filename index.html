@@ -15,6 +15,7 @@
         width: 300px;
         height: 200px;
         margin: 10px;
+        cursor: pointer;
       }
       
       /* CSS for the modal */
@@ -36,6 +37,23 @@
         width: 80%;
         max-width: 1000px;
       }
+      /* CSS for the close button */
+      .close {
+          position: absolute;
+          top: 10px;
+          right: 35px;
+          color: #f1f1f1;
+          font-size: 40px;
+          font-weight: bold;
+          transition: 0.3s;
+      }
+      /* CSS for the close button on hover */
+      .close:hover,
+      .close:focus {
+          color: #bbb;
+          text-decoration: none;
+          cursor: pointer;
+      }
     </style>
   </head>
   <body>
@@ -45,9 +63,9 @@
       <img class="photo" src="photo3.jpg" onclick="openModal(this);">
     </div>
     <div id="modal" class="modal">
+      <span class="close" onclick="closeModal();">&times;</span>
       <div class="modal-content">
         <img id="modal-image">
-        <a href="#" onclick="closeModal();">Close</a>
       </div>
     </div>
     <script>
