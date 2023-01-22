@@ -1,1 +1,67 @@
-testing
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Photo Gallery</title>
+    <style>
+      /* CSS for the gallery container */
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      /* CSS for each individual photo */
+      .photo {
+        width: 300px;
+        height: 200px;
+        margin: 10px;
+      }
+      
+      /* CSS for the modal */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.8);
+      }
+      
+      /* CSS for the modal content */
+      .modal-content {
+        margin: 10% auto;
+        width: 80%;
+        max-width: 1000px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="gallery">
+      <img class="photo" src="photo1.jpg" onclick="openModal(this);">
+      <img class="photo" src="photo2.jpg" onclick="openModal(this);">
+      <img class="photo" src="photo3.jpg" onclick="openModal(this);">
+    </div>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <img id="modal-image">
+        <a href="#" onclick="closeModal();">Close</a>
+      </div>
+    </div>
+    <script>
+      function openModal(image) {
+        var modal = document.getElementById("modal");
+        var modalImage = document.getElementById("modal-image");
+        modalImage.src = image.src;
+        modal.style.display = "block";
+      }
+      
+      function closeModal() {
+        var modal = document.getElementById("modal");
+        modal.style.display = "none";
+      }
+    </script>
+  </body>
+</html>
