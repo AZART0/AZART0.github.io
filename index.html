@@ -119,5 +119,57 @@
     }
   };
 </script>
+    <script>
+  var currentIndex = 0;
+  var images = document.getElementsByClassName("photo");
+  var modalImage = document.getElementById("modal-image");
+  var modal = document.getElementById("modal");
+  
+  function openModal(image) {
+    currentIndex = Array.prototype.indexOf.call(images, image);
+    modalImage.src = image.src;
+    modal.style.display = "block";
+  }
+
+  function closeModal() {
+    modal.style.display = "none";
+  }
+
+  function navigate(direction) {
+    currentIndex = currentIndex + direction;
+    if (currentIndex < 0) {
+      currentIndex = images.length - 1;
+    } else if (currentIndex > images.length - 1) {
+      currentIndex = 0;
+    }
+    modalImage.src = images[currentIndex].src;
+  }
+
+  document.onkeydown = function(e) {
+    e = e || window.event;
+    switch (e.keyCode) {
+      case 37: // left arrow key
+        navigate(-1);
+        break;
+      case 39: // right arrow key
+        navigate(1);
+        break;
+    }
+  };
+
+  var startX, endX;
+  modal.addEventListener("touchstart", function(event) {
+      startX = event.touches[0].pageX;
+  }, false);
+  modal.addEventListener("touchend", function(event) {
+      endX = event.changedTouches[0].pageX;
+      swipeLength = endX - startX;
+      if(swipeLength > 50) {
+          navigate(-1);
+      } else if (swipeLength < -50) {
+          navigate(1);
+      }
+  }, false);
+</script>
   </body>
 </html>
