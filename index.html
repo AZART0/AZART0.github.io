@@ -4,11 +4,11 @@
     <p class="title">Title 1</p>
   </div>
   <div class="photo-container">
-    <img src="photo2.jpg" alt="photo2" class="photo" data-title="Title 2">
+    <img src="despicable-me-2-DXE4CP.jpg" alt="photo2" class="photo" data-title="Title 2">
     <p class="title">Title 2</p>
   </div>
   <div class="photo-container">
-    <img src="photo3.jpg" alt="photo3" class="photo" data-title="Title 3">
+    <img src="cow.jpg" alt="photo3" class="photo" data-title="Title 3">
     <p class="title">Title 3</p>
   </div>
   ...
@@ -22,6 +22,8 @@
     <button id="next-button">&gt;</button>
   </div>
 </div>
+
+<style>
 #gallery {
   display: flex;
   flex-wrap: wrap;
@@ -79,6 +81,9 @@
   left: 50%;
   transform: translateX(-50%);
 }
+</style>
+
+<script>
 const gallery = document.getElementById("gallery");
 const lightbox = document.getElementById("lightbox");
 const lightboxImage = document.getElementById("lightbox-image");
@@ -91,4 +96,5 @@ let images = gallery.getElementsByClassName("photo");
 
 gallery.addEventListener("click", function(event) {
   if (event.target.className === "photo")
-
+  // add code here to open lightbox and display the clicked photo
+});
